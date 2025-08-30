@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-dashboard-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "portfolio",
+    "stocks",
+    "dashboard"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Backend API for Portfolio Dashboard",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "yahoo-finance2": "^2.11.2",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.5.0",
+    "xlsx": "^0.18.5",
+    "node-cache": "^5.1.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
