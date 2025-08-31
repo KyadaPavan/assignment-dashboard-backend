@@ -147,8 +147,8 @@ router.get('/portfolio', async (req, res) => {
       lastUpdated: new Date().toISOString()
     };
 
-    // Cache the response for 30 seconds for real-time updates
-    setCachedData(cacheKey, response, 30);
+    // Cache the response for 10 seconds for real-time updates
+    setCachedData(cacheKey, response, 10);
 
     console.log('✅ Portfolio data enriched successfully');
 

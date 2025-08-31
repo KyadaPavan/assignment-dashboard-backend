@@ -16,7 +16,8 @@ const getCurrentPrice = async (symbol) => {
     const quote = await yahooFinance.quote(symbol);
     const price = quote.regularMarketPrice || quote.price || 0;
 
-    setCachedData(cacheKey, price, 30); // Cache for 30 seconds
+    console.log(`💰 ${symbol}: Current Price = ₹${price}`);
+    setCachedData(cacheKey, price, 10); // Cache for 10 seconds for real-time updates
     return price;
   } catch (error) {
     console.error(`Error fetching price for ${symbol}:`, error.message);
@@ -115,17 +116,23 @@ const getMarketData = async (symbol) => {
       getLatestEarnings(symbol)
     ]);
 
+    // Get market status from Yahoo Finance
+    const quote = await yahooFinance.quote(symbol);
+    const marketState = quote.marketState || 'UNKNOWN';
+
     return {
       currentPrice,
       peRatio,
-      latestEarnings
+      latestEarnings,
+      marketState
     };
   } catch (error) {
     console.error(`Error fetching market data for ${symbol}:`, error.message);
     return {
       currentPrice: 0,
       peRatio: 'N/A',
-      latestEarnings: 'N/A'
+      latestEarnings: 'N/A',
+      marketState: 'UNKNOWN'
     };
   }
 };
